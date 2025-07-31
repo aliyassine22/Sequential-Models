@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 
-device='cuda' if torch.cuda.is_available() else 'cpu'
+device='cpu'
 class LSTM_V2(nn.Module):
     def __init__(self,input_size, hidden_size,num_layers, num_classes):
         super(LSTM_V2,self).__init__()
@@ -40,17 +40,17 @@ class RNNClassifier(nn.Module):
         out = self.fc(out)    # final prediction layer
         return out
     
-    
-def load_model(model_type: str):
+def load_model(model_type):
     if model_type == 'GRU':
         PATH=r"pretrained models\Recurrent Models\GRU_Best_Model"
         model = RNNClassifier(300, hidden_size=128, num_layers=1, num_classes=4)
-        model.load_state_dict(torch.load(PATH, weights_only=True))
-
+        state = torch.load(PATH, map_location=torch.device('cpu'))
+        model.load_state_dict(state)
     elif model_type == 'LSTM':
-        PATH=r"pretrained models\Recurrent Models\LSTM_V3_Best_Model"
+        PATH=r"pretrained models\Recurrent Models\LSTM_Best_Model"
         model=LSTM_V2(input_size=300,hidden_size=256,num_layers=3,num_classes=4)
-        model.load_state_dict(torch.load(PATH))
+        state = torch.load(PATH, map_location=torch.device('cpu'))
+        model.load_state_dict(state)
     return model
 
 def evaluate_text(model,feed_data):

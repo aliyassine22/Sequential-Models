@@ -175,7 +175,11 @@ def convert_sequences_to_tensor(model=model_cbow,sequences=[], num_tokens_in_seq
 def perprocess_text(text):
     cleaned_text = clean_text(text)
     lemmatized_text = lemmatized_words(cleaned_text)
-    tensor = convert_sequences_to_tensor(sequences=[lemmatized_text])
+    print('lemmatized_text:', lemmatized_text)
+    input_text=[]
+    input_text.append(lemmatized_text)
+    tensor = convert_sequences_to_tensor(sequences=input_text)
+    print('tensor:', tensor.shape)
     # print('text:', text)
     # print('cleaned_text:', cleaned_text)
     # print('lemmatized_text:', lemmatized_text)
