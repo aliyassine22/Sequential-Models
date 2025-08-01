@@ -53,9 +53,10 @@ public/ # static assets for the UI
 
 ## Frontend (React)
 - Minimal form to input a text sample and display the model’s predicted class from the API.
-cd ../
-npm install
-npm run dev
+
+- **cd ../**
+- **npm install**
+- **npm run dev**
 
 ---
 
@@ -63,16 +64,19 @@ npm run dev
 > Adjust commands to your environment; paths and script names may vary.
 
 **Backend**
-cd api
-**create venv**
-**(install deps) pip install -r requirements.txt  # or install FastAPI, Uvicorn, Torch, Gensim**
-**after accessing the virtual environment, type: uvicorn main:app --reload**
+
+-cd api
+-**create venv**
+-**(install deps) pip install -r requirements.txt  # or install FastAPI, Uvicorn, Torch, Gensim**
+-**after accessing the virtual environment, type: uvicorn main:app --reload**
 
 ## Results (high-level)
+
 We compare accuracy across RNN, GRU, and LSTM on the same dataset/splits to highlight trade-offs:
-**RNN** (baseline)
-**GRU** (speed/efficiency)
-**LSTM** (long-dependency handling)
+
+- **RNN** (baseline)
+- **GRU** (speed/efficiency)
+- **LSTM** (long-dependency handling)
 See notebooks and the slide deck for the exact scores and plots.
 
 
