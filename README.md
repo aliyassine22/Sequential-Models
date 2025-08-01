@@ -65,10 +65,10 @@ public/ # static assets for the UI
 
 **Backend**
 
--cd api
--**create venv**
--**(install deps) pip install -r requirements.txt  # or install FastAPI, Uvicorn, Torch, Gensim**
--**after accessing the virtual environment, type: uvicorn main:app --reload**
+- **cd api**
+- **create venv**
+- **(install deps) pip install -r requirements.txt  # or install FastAPI, Uvicorn, Torch, Gensim**
+- **after accessing the virtual environment, type: uvicorn main:app --reload**
 
 ## Results (high-level)
 
