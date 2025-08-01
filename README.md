@@ -62,7 +62,6 @@ The models directory contains our Pydantic/Swagger schemas, and the  main.py fil
 - **npm run dev**
 
 ## Quick start (indicative)
-> Adjust commands to your environment; paths and script names may vary.
 
 **Backend**
 
