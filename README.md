@@ -22,11 +22,10 @@ A small, end-to-end project that compares **RNN**, **GRU**, and **LSTM** models 
 
 
 ## Project structure
-- Notebook/ # training & experimentation (model notebooks)
-- Presentation/ # slide deck summarizing concepts and results
-- api/ # FastAPI app, routers, schemas (Pydantic), model I/O
-- src/ # React + Vite UI
-- public/ # static assets for the UI
+- Notebook/ training & experimentation (model notebook)
+- Presentation/ slide deck summarizing concepts 
+- api/ FastAPI app, routers, schemas (Pydantic), model I/O
+- src/ react + Vite UI
 
 
 
