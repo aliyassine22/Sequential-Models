@@ -66,6 +66,7 @@ A small, end-to-end project that compares **RNN**, **GRU**, and **LSTM** models 
 - **create venv**
 - **(install deps) pip install -r requirements.txt  # or install FastAPI, Uvicorn, Torch, Gensim**
 - **after accessing the virtual environment, type: uvicorn main:app --reload**
+
 Note that we did use Swagger UI to test our endpoints, it may be accessed on **http://localhost:8000/docs**. Note that the schema (only) was developed with the help of ChatGPT and our learning notes are found there.
 
 ## Results (high-level)
