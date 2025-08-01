@@ -58,8 +58,6 @@ public/ # static assets for the UI
 - **npm install**
 - **npm run dev**
 
----
-
 ## Quick start (indicative)
 > Adjust commands to your environment; paths and script names may vary.
 
