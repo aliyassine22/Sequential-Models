@@ -50,7 +50,7 @@ A small, end-to-end project that compares **RNN**, **GRU**, and **LSTM** models 
 
 
 
-## Frontend (React)
+## Frontend (React, by Chatgpt)
 - Minimal form to input a text sample and display the model’s predicted class from the API.
 
 - **cd ../**
