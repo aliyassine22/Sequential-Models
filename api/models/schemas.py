@@ -1,21 +1,27 @@
 # api/models/schemas.py
-from typing import Optional, Literal, Dict
-from pydantic import BaseModel, Field
-from pydantic.config import ConfigDict
+from typing import  Literal # used to restrict strings
+from pydantic import BaseModel, Field 
+# BaseModel: pydantic base class used for defining request/response schemas.
+# Field: adds metadata like default values, constraints, descriptions
 
-# --------- shared "enums" for better docs and validation ---------
+from pydantic.config import ConfigDict # used to allow alias names 
 
+# shared enums for better docs and validation 
 ModelType = Literal["LSTM", "GRU"]
 
-# NOTE: exact strings match what your UI expects to display
+# exact strings match what your UI expects to display, if any thing is different, you will get an error
 Label = Literal["Normal", "Depression", "Suicidal", "Some Other Disorder"]
 
-# --------- request models ---------
 
+"""
+Serialization means converting a Python object (like a Pydantic model or a dictionary) into a format that can be easily sent over the network or stored (JSON format)
+Python object ➜ Serialization ➜ JSON string for API response.  Used in the PredictOut method
+JSON string ➜ Deserialization ➜ Python object on the receiving end. Used in the PredictIn method 
+"""
+
+# request models 
 class PredictIn(BaseModel):
-    """
-    Request body for POST /predict
-    """
+    # request body for pOST /predict
     text: str = Field(
         ...,
         min_length=1,
@@ -29,21 +35,17 @@ class PredictIn(BaseModel):
         examples=["LSTM"]
     )
 
-# --------- response / error models ---------
-
+# response models 
+"""
+Response body for POST /predict.
+We expose the field as class in JSON because the frontend reads response.data.class
+"""
 class PredictOut(BaseModel):
-    """
-    Response body for POST /predict.
-    We expose the field as `class` in JSON because your frontend reads response.data.class.
-    In Python we call it `label` and map it via alias for safety.
-    """
     # Make sure aliases are honored when serializing to JSON
-    model_config = ConfigDict(populate_by_name=True)
-
-    # alias -> JSON field name will be "class"
+    model_config = ConfigDict(populate_by_name=True) # ensures the alias (class) is respected during serialization
     label: Label = Field(
-        ...,
-        alias="class",
+        ..., # field must be present, thats why we use 3 dots, however it is empty
+        alias="class", # serialization, to json format, we use class. label is used instead of class in deserialization to python compatible formats
         description="Predicted category."
     )    
 
