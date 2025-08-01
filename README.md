@@ -44,8 +44,7 @@ A small, end-to-end project that compares **RNN**, **GRU**, and **LSTM** models 
 In our deployment, it is important to note that we tried adopting the best backend practices.
 You may find a controller directory where our input's preprocessing and model deployment functions are found.
 The routes directory contains the routes.py file where we are defining the HTTP endpoint and calling our controllers
-The models directory contains our Pydantic/Swagger schemas.  
-The  main.py file is the one responsible for running our backend.
+The models directory contains our Pydantic/Swagger schemas, and the  main.py file is the one responsible for running our backend.
 
 ## API (FastAPI)
 - **Endpoint:** `POST /predict`
